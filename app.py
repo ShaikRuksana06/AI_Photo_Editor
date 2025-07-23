@@ -27,7 +27,7 @@ net.getLayer(class8).blobs = [pts.transpose().reshape(2, 313, 1, 1)]
 net.getLayer(conv8).blobs = [np.full([1, 313], 2.606, dtype="float32")]
 
 # 🔑 DeepAI API Key
-DEEP_AI_API_KEY = 'cba2e907-eb34-4205-9f28-cf15c8fb880c'  # Replace with your real API key
+DEEP_AI_API_KEY = '.........'  # Replace with your real API key
 
 @app.route('/')
 def index():
