@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Photo Editor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="bg-light">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">🖼️ AI Photo Editor</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">🏠 Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#features">✨ Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#gallery">🖼️ Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#pricing">💰 Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">📞 Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Carousel -->
+  <div id="photoCarousel" class="carousel slide mt-3" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{{ url_for('static', filename='images/sample1.jpg') }}" class="d-block w-100" alt="Sample 1">
+      </div>
+      <div class="carousel-item">
+        <img src="{{ url_for('static', filename='images/sample2.jpg') }}" class="d-block w-100" alt="Sample 2">
+      </div>
+      <div class="carousel-item">
+        <img src="{{ url_for('static', filename='images/sample3.jpg') }}" class="d-block w-100" alt="Sample 3">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#photoCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#photoCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <!-- Upload & Edit Form -->
+  <div class="container mt-5">
+    <div class="card shadow p-4">
+      <h3 class="text-center mb-4">Edit Your Image</h3>
+      <form action="/edit" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="image" class="form-label">📤 Upload an Image</label>
+          <input type="file" class="form-control" name="image" id="image" accept="image/*" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="operation" class="form-label">🎯 Choose an Operation</label>
+          <select class="form-select" name="operation" id="operation" required>
+            <option value="">-- Select --</option>
+            <option value="remove_scratches">🩹 Remove Scratches</option>
+            <option value="black_white">🖤 Convert to Black & White</option>
+            <option value="colorize">🎨 Colorize (B&W to Color)</option>
+            <option value="rotate">🔄 Rotate 90°</option>
+            <option value="grayscale">⚫ Grayscale</option>
+          </select>
+        </div>
+
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary btn-lg">Apply</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Optional Sections (Placeholders) -->
+  <section id="features" class="container mt-5">
+    <h4>✨ Features</h4>
+    <p>Remove scratches, convert color, rotate, grayscale, and enhance your photos with AI.</p>
+  </section>
+
+  <section id="gallery" class="container mt-5">
+    <h4>🖼️ Gallery</h4>
+    <p>View examples of restored and colorized images here.</p>
+  </section>
+
+  <section id="pricing" class="container mt-5">
+    <h4>💰 Pricing</h4>
+    <p>Free basic tools. Premium features coming soon!</p>
+  </section>
+
+  <section id="contact" class="container mt-5 mb-5">
+    <h4>📞 Contact</h4>
+    <p>Have questions? Reach out to us at support@aiphotoeditor.com</p>
+  </section>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
